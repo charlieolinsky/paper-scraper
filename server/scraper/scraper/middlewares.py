@@ -4,11 +4,11 @@
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
 from scrapy import signals
-
-# useful for handling different item types with a single interface
+import random
 from itemadapter import is_item, ItemAdapter
 
 
+# Used to process spider input (responses) and output (requests and items)
 class ScraperSpiderMiddleware:
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the spider middleware does not modify the
@@ -101,3 +101,25 @@ class ScraperDownloaderMiddleware:
 
     def spider_opened(self, spider):
         spider.logger.info("Spider opened: %s" % spider.name)
+
+
+class RotateUserAgentMiddleware:
+    # This constructor is called when we create an instance of the class.
+    # It initializes the middleware with the user_agents list.
+    def __init__(self, user_agents):
+        self.user_agents = user_agents
+
+    # This method is called by Scrapy to create an instance of the middleware.
+    # It fetches the user_agents list from the settings.py file.
+    @classmethod
+    def from_crawler(cls, crawler):
+        return cls(
+            user_agents=crawler.settings.get('USER_AGENTS')
+        )
+
+    # This method is called by Scrapy for each request that goes through the middleware.
+    # It picks a random user agent from the user_agents list and sets it as the User-Agent header in the request.
+    def process_request(self, request, spider):
+        user_agent = random.choice(self.user_agents)
+        request.headers['User-Agent'] = user_agent
+        spider.logger.info(f"Using User-Agent: {user_agent}")
