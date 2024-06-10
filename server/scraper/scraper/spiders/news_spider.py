@@ -5,7 +5,7 @@ class NewsSpider(scrapy.Spider):
     seen = set() #Prevent duplicate tokens
 
     start_urls = [
-        'https://www.techradar.com/news/fallout-5-release-date-trailer-news-gameplay'
+        'https://www.ign.com/articles/elden-ring-shadow-of-the-erdtree-first-impressions-of-the-big-dlc'
     ]
 
     def parse(self, response):
