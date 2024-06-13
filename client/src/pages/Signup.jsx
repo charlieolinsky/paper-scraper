@@ -6,9 +6,6 @@ export default function Signup() {
     const [password, setPassword] = useState("")
 
     const onButtonClick = async () => {
-        console.log(email)
-        console.log(password)
-        
         const {data, err} = await supabase.auth.signUp({
             email: email,
             password: password,

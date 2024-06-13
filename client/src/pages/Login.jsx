@@ -6,9 +6,6 @@ export default function Login() {
     const [password, setPassword] = useState("")
 
     const onButtonClick = async () => {
-        console.log(email)
-        console.log(password)
-        
         const {data, err} = await supabase.auth.signInWithPassword({
             email: email,
             password: password,
