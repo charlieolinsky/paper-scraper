@@ -13,7 +13,7 @@ export default function TestArticle() {
         console.log("Articles retrieved")
         console.log(data)
 
-        let err = await addArticle()   
+        let err = await addArticle("title is title", "article is article", "size is size")   
     }
 
 
