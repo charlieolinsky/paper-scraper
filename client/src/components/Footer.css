@@ -1,0 +1,15 @@
+.footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  background-color: #e0e0e0;
+  color: #004080;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer div {
+  color: #004080;
+  cursor: pointer;
+}
