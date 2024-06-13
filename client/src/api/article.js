@@ -1,6 +1,9 @@
 import supabase from "../utils/supabase"
 
+//TODO: make these all authenticated with sessions
+
 const articles = "articles"
+//get all articles, regardless of user
 const getArticles = async () => {
     const {data, error } = await supabase
         .from(articles)
@@ -26,7 +29,8 @@ const addArticle = async (title, article, size) => {
     return error
 } 
 
-const updateArticle = async(title, article, size, id) => {
+//update with article id 
+const updateArticle = async (title, article, size, id) => {
     const {error} = await supabase 
         .from(articles)
         .update({
@@ -39,5 +43,13 @@ const updateArticle = async(title, article, size, id) => {
     return error
 }
 
-export { getArticles, addArticle, updateArticle }
+const deleteArticle = async (id) => {
+    const response = await supabase
+    .from(articles)
+    .delete()
+    .eq('id', id)
+}
+
+
+export { getArticles, addArticle, updateArticle, deleteArticle }
 
