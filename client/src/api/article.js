@@ -26,5 +26,18 @@ const addArticle = async (title, article, size) => {
     return error
 } 
 
-export { getArticles, addArticle }
+const updateArticle = async(title, article, size, id) => {
+    const {error} = await supabase 
+        .from(articles)
+        .update({
+            title: title,
+            article: article,
+            size: size,
+            user_id: localStorage.getItem("user_id")
+        })
+        .eq('id', id)
+    return error
+}
+
+export { getArticles, addArticle, updateArticle }
 
