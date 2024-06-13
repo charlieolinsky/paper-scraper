@@ -1,4 +1,3 @@
-import { SupabaseClient } from "@supabase/supabase-js"
 import { useState } from "react"
 import supabase from "../utils/supabase"
 
@@ -10,7 +9,7 @@ export default function Login() {
         console.log(email)
         console.log(password)
         
-        const {data, err} = await supabase.auth.signUp({
+        const {data, err} = await supabase.auth.signInWithPassword({
             email: email,
             password: password,
         })
