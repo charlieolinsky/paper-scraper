@@ -1,12 +1,25 @@
 import supabase from "../utils/supabase"
 
-const getArticles= async () => {
+const articles = "articles"
+const getArticles = async () => {
     const {data, error } = await supabase
-    .from("articles")
+    .from(articles)
     .select()
 
     return {data, error}
 }
 
-export default getArticles
+const addArticle = async () => {
+    console.log(localStorage.getItem("user_id")) 
+    const {error} = await supabase
+    .from(articles)
+    .insert([
+        {title: 'testing', article:'I love testing articles', size:'normal', user_id: localStorage.getItem("user_id")}
+        ])
+
+
+    return error
+} 
+
+export { getArticles, addArticle }
 

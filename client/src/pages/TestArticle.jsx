@@ -1,5 +1,5 @@
 import { useState } from "react"
-import getArticles from "../api/article"
+import { getArticles, addArticle } from "../api/article"
 
 export default function TestArticle() {
 
@@ -12,6 +12,8 @@ export default function TestArticle() {
         }
         console.log("Articles retrieved")
         console.log(data)
+
+        let err = await addArticle()   
     }
 
 
@@ -19,6 +21,6 @@ export default function TestArticle() {
 
 
 
-        <input type="button" onClick={onButtonClick} value={'Get Articles'} />
+        <input type="button" onClick={onButtonClick} value={'Test Articles'} />
     )
 }

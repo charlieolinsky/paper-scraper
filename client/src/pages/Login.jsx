@@ -14,7 +14,8 @@ export default function Login() {
         if (err != null) {
             console.log(err)
         }
-
+        
+        localStorage.setItem("user_id", data.user.id)
         console.log("user signed in")
         console.log(data)
     }
