@@ -1,19 +1,19 @@
-import './App.css'
-import Login from './pages/Login'
-import Signup from './pages/Signup'
-import TestArticle from './pages/TestArticle'
-function App() {
-    
-    return (
-        <>
-            <h1> Signup </h1>
-            <Signup />    
-            <h1> Login </h1>
-            <Login />
-            <h1> Test Articles </h1>
-            <TestArticle />
-        </>   
-    )
-}
+import React from "react";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import Footer from "./components/Footer";
+import "./App.css";
 
-export default App
+const App = () => {
+  return (
+    <div className="app">
+      <Header />
+      <div className="content">
+        <Hero />
+      </div>
+      <Footer />
+    </div>
+  );
+};
+
+export default App;
