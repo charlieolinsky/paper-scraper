@@ -15,7 +15,7 @@ Setting Up Conda/Python Environment
 Important Notes
 
 1.  Installing New Dependencies:
-        If you install any new dependencies, ensure you update the environment.yml file in the root directory (/server/scraper). 
+        If you install any new dependencies, ensure you update the environment.yml file in the root directory (/server). 
         After your work is done, always run:
 
         $ conda env export > environment.yml
