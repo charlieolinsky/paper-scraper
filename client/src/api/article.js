@@ -48,6 +48,7 @@ const deleteArticle = async (id) => {
     .from(articles)
     .delete()
     .eq('id', id)
+    return response
 }
 
 

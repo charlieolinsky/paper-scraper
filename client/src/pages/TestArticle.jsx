@@ -12,9 +12,10 @@ export default function TestArticle() {
         console.log(data)
         error = await addArticle("title is title", "article is article", "size is size")   
         console.log(error)
-        error = await updateArticle("updated", "article is article", "size is size","a8f2b9b8-c73b-44a3-8332-ead4ecdbb836")
+        error = await updateArticle("updated", "article is article", "size is size","16709def-e972-4851-a526-921938016a6c")
         console.log(error)
-        response = await deleteArticle("4f8c2593-fadd-4780-9d45-57bd250c8da6")
+        console.log("deleting")
+        let response = await deleteArticle("b27ea2da-e142-4c20-96ad-dcf47ee95bd3")
         console.log(response)
     }
 
