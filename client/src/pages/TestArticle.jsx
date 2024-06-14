@@ -2,13 +2,11 @@ import { useState } from "react"
 import { getArticles, addArticle, updateArticle, deleteArticle } from "../api/article"
 
 export default function TestArticle() {
-    const [articles, setArticles] = useState([])
 
     const onButtonClick = async () => {
+         // test getting a users articles 
         let {data, error}= await getArticles()
-        if (error != null) {
-            console.log(error)
-        }
+        console.log(error)
         console.log(data)
         error = await addArticle("title is title", "article is article", "size is size")   
         console.log(error)
