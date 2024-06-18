@@ -1,4 +1,6 @@
 import scrapy
+from scrapy.crawler import CrawlerProcess
+from scrapy.utils.project import get_project_settings
 
 class NewsSpider(scrapy.Spider):
     name = "news"
@@ -23,3 +25,18 @@ class NewsSpider(scrapy.Spider):
                 yield {
                     'paragraph': text,
                 }
+
+#Run spider as a Script
+def __run_spider():
+    process = CrawlerProcess(get_project_settings())
+    process.crawl(NewsSpider)
+    process.start() #Script blocks here until crawling completes 
+
+#Function to start the spider.
+#Called by the server when the user requests to scrape data.
+def start_spider():
+    __run_spider()
+
+#Function to test the spider.
+if __name__ == "__main__":
+    __run_spider()

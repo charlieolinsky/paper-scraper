@@ -24,6 +24,11 @@ AUTOTHROTTLE_ENABLED = True
 AUTOTHROTTLE_START_DELAY = 2
 AUTOTHROTTLE_MAX_DELAY = 10
 
+#Scraped data path
+FEEDS = {
+    "../scraper/data/news.jsonl": {"format": "jsonl"},
+}
+
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
 
