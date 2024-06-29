@@ -1,12 +1,11 @@
 import React from "react";
-import "./Footer.css";
 
 const Footer = () => {
   return (
-    <footer className="footer">
-      <div>Privacy Policy</div>
-      <div>Terms of Service</div>
-      <div>Contact</div>
+    <footer className="w-full bg-darkBlue text-white text-center py-4">
+      <div className="container mx-auto">
+        <p>&copy; 2024 PaperScraper. All rights reserved.</p>
+      </div>
     </footer>
   );
 };
