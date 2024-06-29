@@ -27,16 +27,8 @@ class NewsSpider(scrapy.Spider):
                 }
 
 #Run spider as a Script
-def __run_spider():
+def run_spider():
     process = CrawlerProcess(get_project_settings())
     process.crawl(NewsSpider)
     process.start() #Script blocks here until crawling completes 
 
-#Function to start the spider.
-#Called by the server when the user requests to scrape data.
-def start_spider():
-    __run_spider()
-
-#Function to test the spider.
-if __name__ == "__main__":
-    __run_spider()

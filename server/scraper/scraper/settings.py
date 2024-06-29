@@ -12,12 +12,14 @@ BOT_NAME = "scraper"
 SPIDER_MODULES = ["scraper.spiders"]
 NEWSPIDER_MODULE = "scraper.spiders"
 
-
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
-# Reduce log verbosity from 'DEBUG'
-LOG_LEVEL = "INFO"
+# Log to specified file
+LOG_ENABLED = True
+LOG_STDOUT = False
+LOG_LEVEL = "DEBUG"
+LOG_FILE = "../../../logs/scrapy.log"
 
 # Vary Delay time between requests to decrease chance of detection
 AUTOTHROTTLE_ENABLED = True
@@ -26,7 +28,7 @@ AUTOTHROTTLE_MAX_DELAY = 10
 
 #Scraped data path
 FEEDS = {
-    "../scraper/data/news.jsonl": {"format": "jsonl"},
+    "../../../data/news.jsonl": {"format": "jsonl"},
 }
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
