@@ -17,9 +17,7 @@ ROBOTSTXT_OBEY = True
 
 # Log to specified file
 LOG_ENABLED = True
-LOG_STDOUT = False
 LOG_LEVEL = "DEBUG"
-LOG_FILE = "../../../logs/scrapy.log"
 
 # Vary Delay time between requests to decrease chance of detection
 AUTOTHROTTLE_ENABLED = True

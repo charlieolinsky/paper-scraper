@@ -1,6 +1,15 @@
+import sys
+import os
 import scrapy
 from scrapy.crawler import CrawlerProcess
-from scrapy.utils.project import get_project_settings
+from scrapy.settings import Settings
+from twisted.internet import reactor
+
+# Ensure the scraper module can be found
+sys.path.append(os.path.join(os.path.dirname(__file__), '../..'))
+
+# Import the settings module after adjusting the path
+from server.scraper.scraper import settings as my_settings
 
 class NewsSpider(scrapy.Spider):
     name = "news"
@@ -26,9 +35,13 @@ class NewsSpider(scrapy.Spider):
                     'paragraph': text,
                 }
 
-#Run spider as a Script
 def run_spider():
-    process = CrawlerProcess(get_project_settings())
-    process.crawl(NewsSpider)
-    process.start() #Script blocks here until crawling completes 
+    # Load settings from the settings module
+    settings = Settings()
+    settings.setmodule(my_settings)
+
+    # Initialize and configure the crawler process
+    process = CrawlerProcess(settings=settings)
+    yield process.crawl(NewsSpider)
+    reactor.stop()
 
